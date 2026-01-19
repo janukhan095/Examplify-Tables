@@ -4,11 +4,13 @@ import { Feather } from "@expo/vector-icons";
 import { BlurView } from "expo-blur";
 import { Platform, StyleSheet } from "react-native";
 import HomeStackNavigator from "@/navigation/HomeStackNavigator";
+import AnalyticsStackNavigator from "@/navigation/AnalyticsStackNavigator";
 import ProfileStackNavigator from "@/navigation/ProfileStackNavigator";
 import { useTheme } from "@/hooks/useTheme";
 
 export type MainTabParamList = {
   HomeTab: undefined;
+  AnalyticsTab: undefined;
   ProfileTab: undefined;
 };
 
@@ -48,8 +50,18 @@ export default function MainTabNavigator() {
         component={HomeStackNavigator}
         options={{
           title: "Home",
-          tabBarIcon: ({ color, size }) => (
-            <Feather name="home" size={size} color={color} />
+          tabBarIcon: ({ color, size, focused }) => (
+            <Feather name={focused ? "home" : "home"} size={size} color={color} />
+          ),
+        }}
+      />
+      <Tab.Screen
+        name="AnalyticsTab"
+        component={AnalyticsStackNavigator}
+        options={{
+          title: "Analytics",
+          tabBarIcon: ({ color, size, focused }) => (
+            <Feather name="bar-chart-2" size={size} color={color} />
           ),
         }}
       />
@@ -58,7 +70,7 @@ export default function MainTabNavigator() {
         component={ProfileStackNavigator}
         options={{
           title: "Profile",
-          tabBarIcon: ({ color, size }) => (
+          tabBarIcon: ({ color, size, focused }) => (
             <Feather name="user" size={size} color={color} />
           ),
         }}
