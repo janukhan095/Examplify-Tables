@@ -1,0 +1,70 @@
+You are a senior backend engineer and database architect.
+
+Current situation:
+- I have a production-ready exam/test platform built on Replit.
+- Replit created and hosts:
+  - PostgreSQL database (own server)
+  - Backend APIs
+  - Auth logic
+- The app is live and stable.
+- I want to COMPLETELY remove Replit from production.
+
+Target architecture:
+- Supabase only (PostgreSQL + Auth + Storage + Edge Functions)
+- No Replit runtime dependency
+- Mobile app will talk directly to Supabase / Edge Functions
+
+Your task:
+MIGRATE EVERYTHING from Replit to Supabase with zero feature loss.
+
+Deliverables (VERY IMPORTANT):
+1. Analyze existing Replit database schema
+   - Reconstruct all tables, relations, indexes
+   - Identify auth-related tables
+2. Design a Supabase-compatible schema
+   - Preserve existing data model
+   - Improve where needed, but NO breaking changes
+   - Future-proof but upload-friendly
+3. Generate FULL PostgreSQL SQL
+   - CREATE TABLE statements
+   - INDEXES
+   - CONSTRAINTS
+4. Generate Supabase Auth integration
+   - Map existing users to auth.users
+   - Guest/anonymous user support
+5. Generate Row Level Security (RLS)
+   - Secure user data
+   - Admin roles
+6. Refactor backend APIs
+   - Replace Replit APIs with Supabase Edge Functions
+   - Use service role securely
+   - No business logic in client
+7. Migration plan
+   - Step-by-step order
+   - Data export/import strategy
+   - Validation checklist
+8. Frontend changes
+   - List of API endpoints to replace
+   - New Supabase endpoints
+   - Required env variables
+
+Constraints:
+- Do NOT assume Replit hosting remains
+- Do NOT use Replit secrets in final solution
+- Output must be copy-paste ready
+- Clearly separate:
+  - SQL
+  - Edge Functions
+  - Migration steps
+- Assume I am a SOLO BUILDER, so keep admin workflows SIMPLE
+
+If any existing logic is unsafe or non-scalable:
+- Flag it clearly
+- Propose a safer alternative
+
+IMPORTANT:
+Ask clarifying questions ONLY if absolutely necessary.
+Otherwise make reasonable assumptions and proceed.
+
+Begin with a HIGH-LEVEL MIGRATION MAP,
+then provide detailed outputs.
