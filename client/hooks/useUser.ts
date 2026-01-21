@@ -13,7 +13,7 @@ export function useUser() {
   const queryClient = useQueryClient();
   const [isInitialized, setIsInitialized] = useState(false);
   const [userId, setUserId] = useState<string | null>(null);
-  const [language, setLanguageState] = useState("en");
+  const [language, setLanguageState] = useState("hi");
 
   useEffect(() => {
     async function init() {

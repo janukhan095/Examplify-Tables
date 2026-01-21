@@ -1,0 +1,143 @@
+You are working on an exam practice app.
+Follow this exactly. Do not add extra features.
+
+====================
+HOME PAGE (MANDATORY)
+====================
+
+Home page must show ALL THREE modes clearly:
+
+1) Subject-wise Practice
+2) Topic-wise Practice
+3) Full Mock Test
+
+No other modes should appear.
+
+====================
+PRACTICE MODE DETAILS
+====================
+
+--------------------
+1) SUBJECT-WISE PRACTICE
+--------------------
+
+Flow:
+Home → Subject-wise Practice → Select Subject → Start Practice
+
+Rules:
+- Topic selection is SKIPPED
+- Questions must be LIMITED (example: 30)
+- Questions must be SPREAD across available topics of that subject
+- If subject has no topics (Hindi, English), fetch directly
+
+BEFORE starting practice:
+- CHECK if questions are available
+- If questions < required count:
+    → Show message: "Questions not available for this subject"
+    → Show BACK button to return safely
+
+--------------------
+2) TOPIC-WISE PRACTICE
+--------------------
+
+Flow:
+Home → Topic-wise Practice → Select Subject → Select Topic → Start Practice
+
+Rules:
+- Fetch EXACTLY 10 questions
+- Questions must be ONLY from the selected topic
+
+BEFORE starting practice:
+- CHECK if questions >= 10
+- If NOT:
+    → Show message: "Not enough questions available for this topic"
+    → Show BACK button
+
+====================
+FULL MOCK TEST
+====================
+
+Flow:
+Home → Full Mock Test → Start → Questions directly
+
+Rules:
+- Total questions: 150
+- No subject selection
+- No topic selection
+- Questions must be subject-wise balanced
+- Questions must be SPREAD across available topics
+
+BEFORE starting mock:
+- CHECK if total questions >= 150
+- CHECK each subject has minimum required questions
+- If NOT:
+    → Show message: "Full mock not available yet"
+    → Disable start OR show BACK button
+
+====================
+LANGUAGE LOGIC (MANDATORY)
+====================
+
+- Supported languages: Hindi & English ONLY
+- Default language: Hindi
+- Global language toggle (Hindi / English)
+- Each question is ONE record with:
+    - question_text_hi
+    - question_text_en
+    - options_hi
+    - options_en
+- Do NOT duplicate questions per language
+- Toggle switches content language only
+
+====================
+DATABASE RULES
+====================
+
+Question table must include:
+- question_id
+- subject_id
+- topic_id (nullable)
+- question_text_hi
+- question_text_en
+- options_hi
+- options_en
+- correct_answer
+
+Rules:
+- topic_id = NULL → subject has no topics
+- IDs like "sub-maths", "top-mechanics" are INTERNAL
+- UI must show clean display names only
+
+====================
+UI DISPLAY & NAVIGATION RULES
+====================
+
+- Never show raw IDs (sub-*, top-*)
+- Always show Subject name
+- Show Topic name where applicable
+
+BACK BUTTON (CRITICAL):
+- Back button MUST work on:
+    - Subject selection screen
+    - Topic selection screen
+    - Question screen
+- Back button must:
+    → Navigate to previous screen
+    → NOT reload app
+    → NOT lose app state unnecessarily
+
+ERROR STATES:
+- If questions are unavailable:
+    → Show clear message
+    → Provide BACK button
+    → Do NOT crash or show blank screen
+
+====================
+STRICT INSTRUCTIONS
+====================
+
+- Do NOT add Previous Year mode
+- Do NOT change existing IDs
+- Do NOT over-engineer
+- Handle empty / insufficient data safely
+- MVP first, clean logic, stable navigation

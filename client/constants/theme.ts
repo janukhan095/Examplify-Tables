@@ -150,12 +150,8 @@ export const Fonts = Platform.select({
 });
 
 export const Languages = [
-  { code: "en", name: "English", nativeName: "English" },
   { code: "hi", name: "Hindi", nativeName: "हिंदी" },
-  { code: "ta", name: "Tamil", nativeName: "தமிழ்" },
-  { code: "te", name: "Telugu", nativeName: "తెలుగు" },
-  { code: "bn", name: "Bengali", nativeName: "বাংলা" },
-  { code: "mr", name: "Marathi", nativeName: "मराठी" },
-  { code: "gu", name: "Gujarati", nativeName: "ગુજરાતી" },
-  { code: "kn", name: "Kannada", nativeName: "ಕನ್ನಡ" },
+  { code: "en", name: "English", nativeName: "English" },
 ];
+
+export const DEFAULT_LANGUAGE = "hi";

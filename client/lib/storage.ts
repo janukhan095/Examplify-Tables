@@ -26,7 +26,7 @@ export async function getDeviceId(): Promise<string> {
 
 export async function getLanguage(): Promise<string> {
   const lang = await AsyncStorage.getItem(KEYS.LANGUAGE);
-  return lang || "en";
+  return lang || "hi";
 }
 
 export async function setLanguage(languageCode: string): Promise<void> {

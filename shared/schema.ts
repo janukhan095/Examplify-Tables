@@ -77,10 +77,13 @@ export const questions = pgTable("questions", {
     .notNull()
     .references(() => topics.id, { onDelete: "cascade" }),
   questionText: text("question_text").notNull(),
+  questionTextHi: text("question_text_hi"),
   questionType: questionTypeEnum("question_type").notNull().default("mcq"),
   options: jsonb("options").$type<string[]>(),
+  optionsHi: jsonb("options_hi").$type<string[]>(),
   correctAnswer: text("correct_answer").notNull(),
   explanation: text("explanation"),
+  explanationHi: text("explanation_hi"),
   difficulty: difficultyEnum("difficulty").notNull().default("medium"),
   year: integer("year"),
   examName: text("exam_name"),
